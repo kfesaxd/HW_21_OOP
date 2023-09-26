@@ -38,34 +38,33 @@ class Stadium:
 
 
 stadium = Stadium("Камп Ноу", "24/09/1957", "Испания", "Барселона", 99_354)
+menu = {
+    1: stadium.data_input,
+    2: stadium.data_output,
+    3: stadium.output_name,
+    4: stadium.output_date,
+    5: stadium.output_country,
+    6: stadium.output_city,
+    7: stadium.output_capacity
+}
+
 while True:
     try:
-        print("1. Добавить стадион")
-        print("2. Отобразить всю информацию о стадионе")
-        print("3. Отобразить название стадиона")
-        print("4. Отобразить дату выпуска")
-        print("5. Отобразить страну")
-        print("6. Отобразить город")
-        print("7. Отобразить вместимость")
-        print("8. Выход")
+        print(
+            "1. Добавить стадион\n"
+            "2. Отобразить всю информацию о стадионе\n"
+            "3. Отобразить название стадиона\n"
+            "4. Отобразить дату выпуска\n"
+            "5. Отобразить страну\n"
+            "6. Отобразить город\n"
+            "7. Отобразить вместимость\n"
+            "8. Выход"
+        )
         choice = int(input("Выберите номер пункта: "))
-        if 0 < choice < 9:
-            if choice == 1:
-                stadium.data_input()
-            elif choice == 2:
-                stadium.data_output()
-            elif choice == 3:
-                stadium.output_name()
-            elif choice == 4:
-                stadium.output_date()
-            elif choice == 5:
-                stadium.output_country()
-            elif choice == 6:
-                stadium.output_city()
-            elif choice == 7:
-                stadium.output_capacity()
-            elif choice == 8:
-                break
+        if 0 < choice < 8:
+            menu[choice]()
+        elif choice == 8:
+            break
         else:
             print("Ошибка! Диапазон от 1 до 8".center(35, "-"))
     except ValueError:

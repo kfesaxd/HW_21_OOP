@@ -44,37 +44,35 @@ class Car:
 
 
 car = Car("Model X", 2023, "Tesla", 3.5, "Black", 4000000)
+menu = {
+    1: car.data_input,
+    2: car.data_output,
+    3: car.output_name,
+    4: car.output_year,
+    5: car.output_maker,
+    6: car.output_engine_size,
+    7: car.output_color,
+    8: car.output_price
+}
+
 while True:
     try:
-        print("1. Добавить автомобиль")
-        print("2. Отобразить все хар-ка автомобиля")
-        print("3. Отобразить название автомобиля")
-        print("4. Отобразить год выпуска автомобиля")
-        print("5. Отобразить производителя автомобиля")
-        print("6. Отобразить объём двигателя автомобиля")
-        print("7. Отобразить цвет автомобиля")
-        print("8. Отобразить цену автомобиля")
-        print("9. Выход")
+        print(
+            "1. Добавить автомобиль\n"
+            "2. Отобразить все хар-ка автомобиля\n"
+            "3. Отобразить название автомобиля\n"
+            "4. Отобразить год выпуска автомобиля\n"
+            "5. Отобразить производителя автомобиля\n"
+            "6. Отобразить объём двигателя автомобиля\n"
+            "7. Отобразить цвет автомобиля\n"
+            "8. Отобразить цену автомобиля\n"
+            "9. Выход"
+        )
         choice = int(input("Выберите номер пункта: "))
-        if 0 < choice < 10:
-            if choice == 1:
-                car.data_input()
-            elif choice == 2:
-                car.data_output()
-            elif choice == 3:
-                car.output_name()
-            elif choice == 4:
-                car.output_year()
-            elif choice == 5:
-                car.output_maker()
-            elif choice == 6:
-                car.output_engine_size()
-            elif choice == 7:
-                car.output_color()
-            elif choice == 8:
-                car.output_price()
-            elif choice == 9:
-                break
+        if 0 < choice < 9:
+            menu[choice]()
+        elif choice == 9:
+            break
         else:
             print("Ошибка! Диапазон от 1 до 9".center(35, "-"))
     except ValueError:
